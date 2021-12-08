@@ -1,11 +1,38 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Kyaw Thet Paing : Save The Sun</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <canvas id="canvas"></canvas>
-    </body>
-    <script src="app.js" charset="utf-8"></script>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cookie Constent Box | CodingNepal</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="wrapper">
+    <img src="cookies.png" alt="This is cookies">
+    <div class="content">
+      <header>My Cookies Policy</header>
+      <p>This website use cookies to ensure you get the best experience on my website. <a href="#" class="item">Learn more</a></p>
+      <div class="buttons">
+        <button class="item">UNDERSTOOD. YUM!</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    const cookieBox = document.querySelector(".wrapper"),
+    acceptBtn = cookieBox.querySelector("button");
+    acceptBtn.onclick = ()=>{
+      //setting cookie for 1 month, after one month it'll be expired automatically
+      document.cookie = "CookieBy=CodingNepal; max-age="+60*60*24*30;
+      if(document.cookie){ //if cookie is set
+        cookieBox.classList.add("hide"); //hide cookie box
+      }else{ //if cookie not set then alert an error
+        alert("Cookie can't be set! Please unblock this site from the cookie setting of your browser.");
+      }
+    }
+    let checkCookie = document.cookie.indexOf("CookieBy=CodingNepal"); //checking our cookie
+    //if cookie is set then hide the cookie box else show it
+    checkCookie != -1 ? cookieBox.classList.add("hide") : cookieBox.classList.remove("hide");
+  </script>
+</body>
 </html>
